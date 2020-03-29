@@ -9,6 +9,7 @@ require_once($template_directory . "/custom-post-type/transaction.php");
 // ROUTES
 require_once($template_directory . "/endpoints/user_get.php");
 require_once($template_directory . "/endpoints/user_post.php");
+require_once($template_directory . "/endpoints/user_put.php");
 
 function expire_token() {
     return time() + (60 * 60 * 24);

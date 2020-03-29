@@ -34,7 +34,7 @@ function api_user_post($request) {
         update_user_meta($user_id, 'cidade', $cidade);
         update_user_meta($user_id, 'estado', $estado);
 
-        return rest_ensure_response("Usuário criado com sucesso.");
+        // return rest_ensure_response("Usuário criado com sucesso.");
 
     } else {
         $response = new WP_Error("email", "E-mail já cadastrado.", array("status" => 403));
@@ -53,18 +53,6 @@ function api_user_post($request) {
     //     "cidade" => $cidade,
     //     "estado" => $estado
     // );
-
-    // {
-    // "name": "",
-    // "email": "",
-    // "senha": "",
-    // "rua": "",
-    // "cep": "",
-    // "numero": "",
-    // "bairro": "",
-    // "cidade": "",
-    // "estado": ""
-    // }
 
     // return rest_ensure_response($response);
 }
