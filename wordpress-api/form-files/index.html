@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="file" multiple>
+    <button>Enviar</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script>
+        const input = document.querySelector("input");
+        const button = document.querySelector("button");
+        button.addEventListener("click", handleClick);
+        const options = {
+            headers: {
+                "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC93b3JkcHJlc3NhcGkubG9jYWwiLCJpYXQiOjE1ODU0ODg0ODEsIm5iZiI6MTU4NTQ4ODQ4MSwiZXhwIjoxNTg1NTc0ODgxLCJkYXRhIjp7InVzZXIiOnsiaWQiOiI2In19fQ.ZM3IybDVSq0EANgUCkTv4RX1M9VyLIk6yp51e-SUx2Y"
+            }
+        }
+
+        function handleClick() {
+            const files = input.files;
+            const form = new FormData();
+
+            for (let i = 0; i < files.length; i++) {
+                form.append(files[i].name, files[i]);
+            }
+
+            form.append("name", "Macbook PRO");
+            form.append("description", "Ótimo notebook para trabalho.");
+            form.append("price", "3299");
+
+            axios.post("http://wordpressapi.local/wp-json/api/product", form, options);
+        }
+    </script>
+</body>
+</html>
