@@ -1,9 +1,8 @@
 Recuperar o token de um usuário:
 
-```
-URL: http://wordpressapi.local/wp-json/jwt-auth/v1/token
-METHOD: POST
-BODY:
+```javascript
+// URL: http://wordpressapi.local/wp-json/jwt-auth/v1/token
+// METHOD: POST
 {
     "username": "jose@outlook.com",
     "password": "123"
@@ -11,7 +10,7 @@ BODY:
 ```
 
 Recuperar as informações de um usuário
-```
+```javascript
 URL: http://wordpressapi.local/wp-json/api/user
 METHOD: GET
 AUTH: Bearer jwt-token
@@ -19,7 +18,7 @@ AUTH: Bearer jwt-token
 
 Criar um novo usuário
 
-```
+```javascript
 URL: http://wordpressapi.local/wp-json/api/user
 METHOD: POST
 BODY:
@@ -38,7 +37,7 @@ BODY:
 
 Editar informações de um usuário
 
-```
+```javascript
 URL: http://wordpressapi.local/wp-json/api/user
 METHOD: PUT
 AUTH: Bearer jwt-token
