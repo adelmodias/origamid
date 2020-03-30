@@ -28,9 +28,9 @@
                 form.append(files[i].name, files[i]);
             }
 
-            form.append("name", "Macbook PRO");
-            form.append("description", "Ótimo notebook para trabalho.");
-            form.append("price", "3299");
+            form.append("name", "iMac PRO - 27 Polegadas");
+            form.append("description", "Ótimo computador para trabalho.");
+            form.append("price", "10299");
 
             axios.post("http://wordpressapi.local/wp-json/api/product", form, options);
         }
