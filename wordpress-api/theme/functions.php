@@ -12,7 +12,21 @@ require_once($template_directory . "/endpoints/user_post.php");
 require_once($template_directory . "/endpoints/user_put.php");
 
 // ROUTES - PRODUCT
+require_once($template_directory . "/endpoints/product_get.php");
 require_once($template_directory . "/endpoints/product_post.php");
+
+function get_product_id_by_slug($slug) {
+    $query = new WP_Query(array(
+        "name" => $slug,
+        "post_type" => "product",
+        "numerposts" => 1,
+        "fields" => "ids"
+    ));
+
+    $posts = $query->get_posts();
+
+    return array_shift($posts);
+}
 
 function expire_token() {
     return time() + (60 * 60 * 24);
