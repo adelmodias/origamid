@@ -16,6 +16,9 @@ require_once($template_directory . "/endpoints/product_get.php");
 require_once($template_directory . "/endpoints/product_post.php");
 require_once($template_directory . "/endpoints/product_delete.php");
 
+// ROUTES - TRANSACTION
+require_once($template_directory . "/endpoints/transaction_post.php");
+
 function get_product_id_by_slug($slug) {
     $query = new WP_Query(array(
         "name" => $slug,

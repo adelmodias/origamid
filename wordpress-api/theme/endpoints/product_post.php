@@ -1,6 +1,6 @@
 <?php
 
-function api_product_put($request) {
+function api_product_post($request) {
     $user = wp_get_current_user();
     $user_id = $user->ID;
 
@@ -48,15 +48,15 @@ function api_product_put($request) {
     return rest_ensure_response($response);
 }
 
-function register_api_product_put() {
+function register_api_product_post() {
     register_rest_route("api", "/product", array(
         array(
-            "methods" => WP_REST_Server::EDITABLE,
-            "callback" => "api_product_put"
+            "methods" => WP_REST_Server::CREATABLE,
+            "callback" => "api_product_post"
         ),
     ));
 }
 
-add_action("rest_api_init", "register_api_product_put");
+add_action("rest_api_init", "register_api_product_post");
 
 ?>
