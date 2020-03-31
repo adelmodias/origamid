@@ -18,6 +18,7 @@ require_once($template_directory . "/endpoints/product_delete.php");
 
 // ROUTES - TRANSACTION
 require_once($template_directory . "/endpoints/transaction_post.php");
+require_once($template_directory . "/endpoints/transaction_get.php");
 
 function get_product_id_by_slug($slug) {
     $query = new WP_Query(array(
@@ -41,5 +42,21 @@ function expire_token() {
 }
 
 add_action("jwt_auth_expire", "expire_token");
+
+function my_login_screen() { ?>
+
+<style type="text/css">
+    #login h1 a {
+        background-image: none;
+    }
+
+    #backtoblog {
+        display: none;
+    }
+</style>
+
+<?php }
+
+add_action("login_enqueue_scripts", "my_login_screen");
 
 ?>
