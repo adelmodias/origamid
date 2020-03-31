@@ -36,9 +36,7 @@
         "parserOptions": {
             "parser": "babel-eslint"
         },
-        "rules": {
-            "vue/html-quotes": "double"
-        }
+        "rules": {}
     },
     "browserslist": [
         "> 1%",
