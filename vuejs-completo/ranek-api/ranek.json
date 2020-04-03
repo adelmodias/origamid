@@ -1,0 +1,32 @@
+{
+    "users": [{
+        "id": "adelmodias@outlook.com",
+        "email": "adelmodias@outlook.com",
+        "name": "Adelmo Dias",
+        "pass": "123",
+        "address": "Emilio Briedes",
+        "postalcode": "05881090",
+        "number": "12",
+        "city": "São Paulo",
+        "state": "SP"
+    }],
+    "products": [{
+            "id": "apple-macbook",
+            "name": "Apple Macbook PRO",
+            "user_id": "adelmodias@outlook.com",
+            "price": "4999",
+            "sold": "false",
+            "description": "Ótimo produto para trabalhar!",
+            "photos": []
+        },
+        {
+            "id": "apple-imac",
+            "name": "Apple iMac",
+            "user_id": "adelmodias@outlook.com",
+            "price": "4999",
+            "sold": "false",
+            "description": "Ótimo produto para trabalhar!",
+            "photos": []
+        }
+    ]
+}
