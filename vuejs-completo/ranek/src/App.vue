@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <TheHeader />
-    <router-view />
+    <main id="main">
+      <router-view />
+    </main>
     <TheFooter />
   </div>
 </template>
@@ -51,6 +53,17 @@ a {
 img {
   display: block;
   max-width: 100%;
+}
+
+#app {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#main {
+  flex: 1;
 }
 
 .btn {
