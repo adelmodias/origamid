@@ -1,22 +1,15 @@
 <template>
   <section class="products-container">
     <div class="productsList" v-if="products && products.length">
-      <div
-        class="productsList__item"
-        v-for="product in products"
-        :key="product.id"
-      >
+      <div class="productsList__item" v-for="(product, index) in products" :key="index">
         <router-link to="/">
-          <img
-            v-if="products.photos"
-            :src="product.photos[0]"
-            :alt="product.photos[0].title"
-          />
+          <img v-if="products.photos" :src="product.photos[0]" :alt="product.photos[0].title" />
           <p class="price">{{ product.price }}</p>
           <h2 class="title">{{ product.name }}</h2>
           <p>{{ product.description }}</p>
         </router-link>
       </div>
+      <ProductsPagination :totalProducts="totalProductsFromApi" :productsPerpage="productsPerPage" />
     </div>
     <div v-else-if="products && products.length === 0">
       <p class="noRresults">Nenhum resultado encontrado.</p>
@@ -25,13 +18,19 @@
 </template>
 
 <script>
+import ProductsPagination from "@/components/ProductsPagination.vue";
 import { api } from "@/services.js";
 import { serialize } from "@/helpers.js";
 export default {
+  name: "ProductsList",
+  components: {
+    ProductsPagination
+  },
   data() {
     return {
       products: null,
-      productsPerPage: 9
+      productsPerPage: 9,
+      totalProductsFromApi: 0
     };
   },
   computed: {
@@ -47,7 +46,11 @@ export default {
   },
   methods: {
     getProducts() {
-      api.get(this.url).then(response => (this.products = response.data));
+      api.get(this.url).then(response => {
+        this.totalProductsFromApi = Number(response.headers["x-total-count"]);
+        console.log(this.totalProductsFromApi, response);
+        this.products = response.data;
+      });
     }
   },
   created() {
